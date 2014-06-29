@@ -17,9 +17,9 @@
     <platform>all</platform>
     <language>en</language>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <forum></forum>
+    <forum>http://forum.xbmc.org/showthread.php?tid=198931</forum>
     <website>http://www.popcornflix.com</website>
     <email></email>
-    <source></source>
+    <source>https://github.com/learningit/plugin.video.popcornflix</source>
   </extension>
 </addon>
