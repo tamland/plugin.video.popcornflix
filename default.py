@@ -71,7 +71,6 @@ def getSources(fanart):
 def getCats(c_url):
     cat_url = 'http://www.popcornflix.com%s' % (c_url)
     html    = getRequest(cat_url)
-    print "html = "+str(html)
     shows=re.compile('<figure>.+?href="(.+?)".+?src="(.+?)".+?title">(.+?)<.+?genre">(.+?)<.+?desc">(.+?)<.+?</li>').findall(html) 
     for sid,simg,sname,sgenre,sdesc in shows:
       if not sid.startswith('/series'):
