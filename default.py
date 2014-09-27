@@ -75,10 +75,10 @@ def getCats(c_url):
     for sid,simg,sname,sgenre,sdesc in shows:
       if (not sid.startswith('/series')) and (not sid.startswith('/tv-shows')):
         surl = "%s?url=%s&mode=GS" %(sys.argv[0], urllib.quote_plus(sid))
-        addLink(surl.encode(UTF8),sname,simg.encode(UTF8),addonfanart,sdesc,sgenre,'',False)
+        addLink(surl.encode(UTF8),sname,simg.encode(UTF8),addonfanart,sdesc.strip(),sgenre,'',False)
       else:
         sname = '[COLOR blue]'+sname+'[/COLOR]'
-        addDir(sname, sid, 'GC', simg, addonfanart, sdesc, sgenre, '')
+        addDir(sname, sid, 'GC', simg, addonfanart, sdesc.strip(), sgenre, '')
        
 
 def getShow(sid):
@@ -90,7 +90,7 @@ def getShow(sid):
       html = getRequest(url)
       playlist = re.compile('BANDWIDTH=(.+?),.+?http:(.+?)protocolversion=3').findall(html)
       try:
-         bitrates = [150000, 240000, 340000, 440000, 552000, 660000, 880000, 1200000]
+         bitrates = [150000, 240000, 340000, 440000, 552000, 640000, 840000, 1240000]
          try:
            urate    = bitrates[int(addon.getSetting('bitrate'))]
          except:
@@ -157,7 +157,7 @@ def addLink(url,name,iconimage,fanart,description,genre,date,showcontext=True,pl
 
 # MAIN EVENT PROCESSING STARTS HERE
 
-xbmcplugin.setContent(int(sys.argv[1]), 'movies')
+xbmcplugin.setContent(int(sys.argv[1]), 'tvshows')
 
 parms = {}
 try:
